@@ -16,6 +16,10 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
+const icon = readFileSync(`${__dirname}/../../public/icon.png`).toString(
+  "base64"
+);
+
 function getCss(theme: string, fontSize: string) {
   let background = "white";
   let foreground = "black";
@@ -123,12 +127,13 @@ export function getHtml(parsedReq: ParsedRequest) {
         <div>
             <div class="spacer">
             <div class="logo-wrapper">
-                ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i])
-                  )
-                  .join("")}
+              <img
+              class="logo"
+              alt="Generated Image"
+              src="data:image/png;base64,${icon}"
+              width="${sanitizeHtml("auto")}"
+              height="${sanitizeHtml("auto")}"
+              />
             </div>
             <div class="spacer">
             <div class="heading">${emojify(
