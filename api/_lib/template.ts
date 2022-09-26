@@ -16,9 +16,9 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
-const icon = readFileSync(`${__dirname}/../../public/icon.png`).toString(
-  "base64"
-);
+const icon = readFileSync(
+  `${__dirname}/../../public/apple-touch-icon.png`
+).toString("base64");
 
 function getCss(theme: string, fontSize: string) {
   let background = "white";
